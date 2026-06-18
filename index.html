@@ -151,15 +151,14 @@
       max-width: 560px;
     }
     .content-grid .video-card a {
-      grid-template-columns: 1fr;
+      grid-template-columns: 109px 1fr;
     }
     .content-grid .video-thumb-wrap {
-      width: 100%;
+      width: 109px;
     }
     .content-grid .video-thumb {
-      width: 100%;
-      height: auto;
-      aspect-ratio: 16 / 9;
+      width: 109px;
+      height: 61px;
     }
 
     h2 {
@@ -244,7 +243,7 @@
 
     .pub-row {
       display: grid;
-      grid-template-columns: 132px 1fr;
+      grid-template-columns: 165px 1fr;
       gap: 0.75rem;
       background: var(--card);
       border: 1px solid var(--border);
@@ -253,7 +252,11 @@
       align-items: start;
     }
     .pub-row.no-fig { grid-template-columns: 1fr; }
-    .pub-fig { border: 1px solid var(--border); background: #fafafa; }
+    .pub-fig {
+      width: 165px;
+      border: 1px solid var(--border);
+      background: #fafafa;
+    }
     .pub-authors { color: var(--muted); font-size: 0.91rem; }
     .pub-title { font-style: italic; margin: 0.12rem 0; }
     .pub-venue { font-size: 0.91rem; }
@@ -346,7 +349,8 @@
     }
     .award-fig { display: flex; flex-direction: column; gap: 0.35rem; }
     .award-fig img {
-      width: 100%;
+      width: 65%;
+      margin: 0 auto;
       aspect-ratio: 4/3;
       object-fit: cover;
       border: 1px solid var(--border);
@@ -359,7 +363,7 @@
     }
     .award-single {
       margin-top: 0.5rem;
-      max-width: 300px;
+      max-width: 195px;
       border: 1px solid var(--border);
     }
 
@@ -379,7 +383,7 @@
       color: inherit;
       text-decoration: none;
       display: grid;
-      grid-template-columns: 168px 1fr;
+      grid-template-columns: 109px 1fr;
       gap: 0.6rem;
       align-items: center;
       padding: 0.5rem 0.6rem;
@@ -387,12 +391,12 @@
     }
     .video-card a:hover { text-decoration: none; }
     .video-thumb-wrap {
-      width: 168px;
+      width: 109px;
       flex-shrink: 0;
     }
     .video-thumb {
-      width: 168px;
-      height: 94px;
+      width: 109px;
+      height: 61px;
       object-fit: cover;
       border-radius: 2px;
       border: 1px solid var(--border);
@@ -494,9 +498,12 @@
       .video-grid { grid-template-columns: 1fr; }
       .project-card { grid-template-columns: 108px 1fr; }
       .project-thumb { width: 108px; height: 108px; }
-      .video-card a { grid-template-columns: 150px 1fr; }
-      .video-thumb-wrap { width: 150px; }
-      .video-thumb { width: 150px; height: 84px; }
+      .video-card a { grid-template-columns: 98px 1fr; }
+      .video-thumb-wrap { width: 98px; }
+      .video-thumb { width: 98px; height: 55px; }
+      .content-grid .video-card a { grid-template-columns: 98px 1fr; }
+      .content-grid .video-thumb-wrap { width: 98px; }
+      .content-grid .video-thumb { width: 98px; height: 55px; }
     }
     @media (max-width: 600px) {
       .site-header h1 { font-size: 1.65rem; }
@@ -666,7 +673,7 @@
               <span class="entry-date">Nov 2021 – Dec 2023</span>
             </div>
             <p class="entry-org">EdUHK CRAC Project (03ABLI) · Faculty of Liberal Arts and Social Sciences</p>
-            <p class="muted">Used university learning data to identify students at risk of underachievement. Implemented LASSO regression to predict graduation GPA and optimised the at-risk cutoff using the AUC. At the programme level, Years 1–2 data predicted Year 3 and graduation outcomes (at-risk: predicted GPA &lt; 2.50). At the course level, mid-semester models predicted final grades from prior GPA, correlated courses, Moodle activity, and early assessment marks (at-risk: projected grade C or below). Findings informed peer-tutoring interventions in foundational Mathematics and Psychology courses.</p>
+            <p class="muted">LASSO models on university learning data flagged at-risk students at programme and course level; findings informed peer-tutoring in foundational Mathematics and Psychology.</p>
             <p class="project-links">
               <a href="https://www.lttc.eduhk.hk/events/20240410_2/" target="_blank" rel="noopener">Seminar Poster</a>
               <a href="https://www.eduhk.hk/lt-newsletter/issue8/pdf/FullVersion_LR.pdf" target="_blank" rel="noopener">LT Newsletter (p. 19)</a>
