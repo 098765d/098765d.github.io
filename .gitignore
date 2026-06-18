@@ -1,0 +1,11 @@
+# Office / temp
+~$*
+*.docx
+
+# Local dev
+terminals/
+
+# Local build artifacts (site is self-contained in index.html)
+assets/ijtes_article.pdf
+assets/ijtes_p*.jpeg
+assets/datauris.txt
