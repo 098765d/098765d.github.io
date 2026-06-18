@@ -24,7 +24,11 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
     body {
       font-family: Georgia, "Times New Roman", Times, serif;
       font-size: 15px;
@@ -325,6 +329,9 @@
     }
     .project-links a + a::before,
     .inline-links a + a::before { content: " · "; color: var(--muted); }
+    .pub-venue a,
+    .project-links a,
+    .inline-links a { overflow-wrap: anywhere; }
 
     .award-card {
       background: var(--card);
@@ -489,30 +496,165 @@
     }
 
     @media (max-width: 960px) {
-      .page { max-width: none; }
+      .page { max-width: none; overflow-x: clip; }
       .body-columns { grid-template-columns: 1fr; }
-      .sidebar { position: relative; height: auto; padding: 1.25rem; }
-      .main { padding: 1.25rem 1rem 2rem; }
-      .content-grid { grid-template-columns: 1fr; }
+      .site-header { padding: 1rem 1rem 0.9rem; }
+      .main { padding: 1rem 0.85rem 2rem; }
+      .content-grid {
+        grid-template-columns: 1fr;
+        gap: 0 0;
+      }
       .content-grid > section#publications,
       .content-grid > section#projects,
       .content-grid > section#teaching { grid-column: auto; }
+      .content-grid > section#teaching .video-grid { grid-template-columns: 1fr; }
       .content-grid .cert-grid { max-width: none; }
       .edu-grid, .award-gallery, .pub-row, .cert-grid,
       .video-grid { grid-template-columns: 1fr; }
-      .project-card { grid-template-columns: 108px 1fr; }
-      .project-thumb { width: 108px; height: 108px; }
-      .video-card a { grid-template-columns: 123px 1fr; }
-      .video-thumb-wrap { width: 123px; }
-      .video-thumb { width: 123px; height: 69px; }
-      .content-grid .video-card a { grid-template-columns: 123px 1fr; }
-      .content-grid .video-thumb-wrap { width: 123px; }
-      .content-grid .video-thumb { width: 123px; height: 69px; }
+      .pub-row { gap: 0.55rem; }
+      .pub-fig {
+        width: 100%;
+        max-width: 220px;
+        margin: 0 auto;
+      }
+      .project-card { grid-template-columns: 96px 1fr; }
+      .project-thumb { width: 96px; height: 96px; }
+      .award-fig img { width: 100%; max-width: 280px; }
+      .cert-card img { width: 100%; max-width: 220px; }
+      .entry-header { flex-direction: column; align-items: flex-start; gap: 0.1rem; }
+
+      .sidebar {
+        position: relative;
+        height: auto;
+        padding: 1rem 0.85rem 0;
+        display: grid;
+        grid-template-columns: 76px 1fr;
+        grid-template-areas:
+          "photo contact"
+          "nav nav";
+        gap: 0.65rem 0.85rem;
+        align-items: start;
+      }
+      .sidebar .profile-photo {
+        grid-area: photo;
+        width: 76px;
+        max-width: 76px;
+        margin: 0;
+      }
+      .sidebar .contact {
+        grid-area: contact;
+        text-align: left;
+        margin: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+        align-self: center;
+        font-size: 0.8rem;
+        line-height: 1.7;
+      }
+      .sidebar nav {
+        grid-area: nav;
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        margin: 0 -0.85rem;
+        padding: 0.55rem 0.85rem 0.65rem;
+        background: linear-gradient(175deg, var(--sidebar) 0%, var(--sidebar-deep) 100%);
+        border-top: 1px solid rgba(255,255,255,0.12);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .sidebar nav::-webkit-scrollbar { display: none; }
+      .sidebar nav ul {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 0.4rem;
+        width: max-content;
+        min-width: 100%;
+        padding-bottom: 0.1rem;
+      }
+      .sidebar nav a {
+        margin-left: 0;
+        padding: 0.42rem 0.72rem;
+        border-left: none;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.1);
+        white-space: nowrap;
+        font-size: 0.78rem;
+      }
+      .sidebar nav a:hover,
+      .sidebar nav a.active {
+        border-left-color: transparent;
+        background: rgba(255,255,255,0.2);
+      }
     }
     @media (max-width: 600px) {
-      .site-header h1 { font-size: 1.65rem; }
-      .site-header .role { font-size: 0.88rem; }
-      .sidebar .profile-photo { width: 108px; max-width: 108px; }
+      body { font-size: 14px; }
+      .site-header h1 { font-size: 1.55rem; }
+      .site-header .role { font-size: 0.84rem; line-height: 1.5; }
+      .main { padding: 0.85rem 0.75rem 1.75rem; }
+      section { margin-bottom: 1.5rem; }
+      .content-grid > section { margin-bottom: 1.5rem; }
+
+      .project-card {
+        grid-template-columns: 1fr;
+      }
+      .project-thumb {
+        width: 100%;
+        height: auto;
+        min-height: 140px;
+        max-height: 200px;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+      .project-body { padding: 0.65rem 0.75rem; }
+
+      .video-card a,
+      .content-grid .video-card a {
+        grid-template-columns: 1fr;
+        gap: 0.45rem;
+        padding: 0.55rem 0.65rem 0.65rem;
+      }
+      .video-thumb-wrap,
+      .content-grid .video-thumb-wrap {
+        width: 100%;
+      }
+      .video-thumb,
+      .content-grid .video-thumb {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+      }
+      .video-info .title { font-size: 0.84rem; }
+
+      .award-gallery { gap: 0.75rem; }
+      .award-card { padding: 0.65rem 0.75rem; }
+      .inline-links a + a::before { content: ""; }
+      .inline-links {
+        display: flex;
+        flex-direction: column;
+        gap: 0.28rem;
+      }
+      .project-links {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+      }
+      .project-links a + a::before { content: ""; }
+
+      .sidebar {
+        grid-template-columns: 64px 1fr;
+        gap: 0.55rem 0.7rem;
+        padding: 0.85rem 0.75rem 0;
+      }
+      .sidebar .profile-photo {
+        width: 64px;
+        max-width: 64px;
+      }
+      .sidebar .contact { font-size: 0.76rem; }
+      .sidebar nav { margin: 0 -0.75rem; padding: 0.5rem 0.75rem 0.6rem; }
+      .sidebar nav a { padding: 0.4rem 0.65rem; font-size: 0.76rem; }
     }
   </style>
 </head>
