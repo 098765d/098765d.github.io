@@ -27,7 +27,7 @@
     html { scroll-behavior: smooth; }
     body {
       font-family: Georgia, "Times New Roman", Times, serif;
-      font-size: 14.5px;
+      font-size: 15px;
       line-height: 1.58;
       color: var(--text);
       background: var(--bg);
@@ -51,7 +51,7 @@
       background: linear-gradient(180deg, #fff 0%, var(--bg) 100%);
     }
     .site-header h1 {
-      font-size: 1.75rem;
+      font-size: 2rem;
       font-weight: normal;
       color: var(--accent-dark);
       letter-spacing: 0.03em;
@@ -59,15 +59,15 @@
     }
     .site-header .role {
       font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.82rem;
-      line-height: 1.5;
+      font-size: 0.95rem;
+      line-height: 1.55;
       color: var(--muted);
       margin-bottom: 0;
     }
 
     .body-columns {
       display: grid;
-      grid-template-columns: 210px minmax(0, 1fr);
+      grid-template-columns: 235px minmax(0, 1fr);
       align-items: start;
     }
 
@@ -93,8 +93,8 @@
     }
     .sidebar .contact {
       font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.72rem;
-      line-height: 1.8;
+      font-size: 0.84rem;
+      line-height: 1.85;
       text-align: center;
       margin-bottom: 1rem;
       padding-bottom: 0.9rem;
@@ -102,56 +102,13 @@
     }
     .sidebar .contact a { color: #d4b8cc; }
     .sidebar .contact a:hover { color: #fff; }
-    .scholar-stats {
-      text-align: center;
-      margin-bottom: 1rem;
-      padding: 0.65rem 0.5rem;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
-    }
-    .scholar-stats-label {
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.68rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: rgba(255,255,255,0.55);
-      margin-bottom: 0.35rem;
-    }
-    .scholar-stats-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.35rem;
-    }
-    .scholar-stat .stat-num {
-      display: block;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: #e8d4e2;
-      font-variant-numeric: tabular-nums;
-      line-height: 1.2;
-    }
-    .scholar-stat .stat-label {
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.62rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: rgba(255,255,255,0.5);
-    }
-    .scholar-stats-date {
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.62rem;
-      color: rgba(255,255,255,0.42);
-      margin: 0.38rem 0 0;
-    }
     .sidebar nav ul { list-style: none; }
     .sidebar nav a {
       display: block;
       font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.72rem;
+      font-size: 0.84rem;
       color: rgba(255,255,255,0.68);
-      padding: 0.26rem 0 0.26rem 0.55rem;
+      padding: 0.3rem 0 0.3rem 0.55rem;
       border-left: 2px solid transparent;
       margin-left: -0.55rem;
     }
@@ -181,6 +138,8 @@
       min-width: 0;
       margin-bottom: 1.75rem;
     }
+    .content-grid > section#publications,
+    .content-grid > section#projects,
     .content-grid > section#certifications {
       grid-column: 1 / -1;
     }
@@ -190,23 +149,6 @@
     .content-grid .cert-grid {
       grid-template-columns: repeat(2, 1fr);
       max-width: 560px;
-    }
-    .content-grid .pub-row {
-      grid-template-columns: 1fr;
-    }
-    .content-grid .pub-fig {
-      width: 100%;
-      max-width: 132px;
-    }
-    .content-grid .project-card {
-      grid-template-columns: 1fr;
-    }
-    .content-grid .project-thumb {
-      width: 100%;
-      height: auto;
-      aspect-ratio: 16 / 9;
-      border-right: none;
-      border-bottom: 1px solid var(--border);
     }
     .content-grid .video-card a {
       grid-template-columns: 1fr;
@@ -544,6 +486,8 @@
       .sidebar { position: relative; height: auto; padding: 1.25rem; }
       .main { padding: 1.25rem 1rem 2rem; }
       .content-grid { grid-template-columns: 1fr; }
+      .content-grid > section#publications,
+      .content-grid > section#projects,
       .content-grid > section#certifications { grid-column: auto; }
       .content-grid .cert-grid { max-width: none; }
       .edu-grid, .award-gallery, .pub-row, .cert-grid,
@@ -555,7 +499,8 @@
       .video-thumb { width: 150px; height: 84px; }
     }
     @media (max-width: 600px) {
-      .site-header h1 { font-size: 1.45rem; }
+      .site-header h1 { font-size: 1.65rem; }
+      .site-header .role { font-size: 0.88rem; }
       .sidebar .profile-photo { width: 108px; max-width: 108px; }
     }
   </style>
@@ -573,20 +518,6 @@
         <a href="mailto:cdong@eduhk.hk">cdong@eduhk.hk</a><br>
         <a href="https://scholar.google.com/citations?user=Mk4QuCAAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a><br>
         <a href="https://orcid.org/0009-0007-6656-5353" target="_blank" rel="noopener">ORCID</a>
-      </div>
-      <div class="scholar-stats">
-        <p class="scholar-stats-label">Citations</p>
-        <div class="scholar-stats-grid">
-          <div class="scholar-stat">
-            <span class="stat-num">102</span>
-            <span class="stat-label">Total</span>
-          </div>
-          <div class="scholar-stat">
-            <span class="stat-num">2</span>
-            <span class="stat-label">h-index</span>
-          </div>
-        </div>
-        <p class="scholar-stats-date">As of 18 Jun 2026</p>
       </div>
       <nav>
         <ul>
