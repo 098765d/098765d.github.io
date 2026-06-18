@@ -139,8 +139,12 @@
       margin-bottom: 1.75rem;
     }
     .content-grid > section#publications,
-    .content-grid > section#projects {
+    .content-grid > section#projects,
+    .content-grid > section#teaching {
       grid-column: 1 / -1;
+    }
+    .content-grid > section#teaching .video-grid {
+      grid-template-columns: repeat(2, 1fr);
     }
     .content-grid .edu-grid { grid-template-columns: 1fr; }
     .content-grid .award-gallery { grid-template-columns: 1fr; }
@@ -491,7 +495,8 @@
       .main { padding: 1.25rem 1rem 2rem; }
       .content-grid { grid-template-columns: 1fr; }
       .content-grid > section#publications,
-      .content-grid > section#projects { grid-column: auto; }
+      .content-grid > section#projects,
+      .content-grid > section#teaching { grid-column: auto; }
       .content-grid .cert-grid { max-width: none; }
       .edu-grid, .award-gallery, .pub-row, .cert-grid,
       .video-grid { grid-template-columns: 1fr; }
